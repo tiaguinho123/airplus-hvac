@@ -80,15 +80,15 @@ export default function GoogleReviews() {
   const r = REVIEWS[current];
 
   return (
-    <section className="py-20 bg-white border-y border-slate-100" aria-labelledby="reviews-heading">
+    <section className="py-12 sm:py-20 bg-white border-y border-slate-100" aria-labelledby="reviews-heading">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-8 sm:mb-12">
           <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: colors.primaryHex }}>
             Customer Reviews
           </p>
-          <h2 id="reviews-heading" className="text-3xl font-extrabold text-slate-900 mb-4">
+          <h2 id="reviews-heading" className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-3">
             What Our Customers Say
           </h2>
           <a
@@ -115,16 +115,16 @@ export default function GoogleReviews() {
             href={reviews.googleMapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-slate-100 hover:shadow-xl transition-shadow"
+            className="block bg-white rounded-2xl p-5 sm:p-8 md:p-10 shadow-md border border-slate-100 hover:shadow-lg transition-shadow"
             aria-label={`${r.name}'s review`}
           >
             {/* Quote mark */}
-            <div className="text-6xl leading-none font-serif mb-4 select-none" style={{ color: colors.primaryHex }} aria-hidden="true">
+            <div className="text-4xl sm:text-6xl leading-none font-serif mb-3 select-none" style={{ color: colors.primaryHex }} aria-hidden="true">
               "
             </div>
 
             {/* Review text */}
-            <p className="text-slate-700 text-lg leading-relaxed mb-8">{r.text}</p>
+            <p className="text-slate-700 text-sm sm:text-base leading-relaxed mb-5">{r.text}</p>
 
             {/* Services tag */}
             {r.services && (
@@ -134,11 +134,11 @@ export default function GoogleReviews() {
             )}
 
             {/* Reviewer info */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
               <img
                 src={r.photo}
                 alt={`${r.name} — verified AIRplus customer`}
-                className="w-14 h-14 rounded-full object-cover ring-2 ring-slate-100 flex-shrink-0"
+                className="w-10 h-10 sm:w-14 sm:h-14 rounded-full object-cover ring-2 ring-slate-100 flex-shrink-0"
                 loading="lazy"
                 decoding="async"
               />
@@ -174,7 +174,7 @@ export default function GoogleReviews() {
         <div className="flex items-center justify-center gap-6 mt-10">
           <button
             onClick={() => go('prev')}
-            className="w-11 h-11 rounded-full border-2 border-slate-200 flex items-center justify-center text-slate-500 transition-colors hover:text-white"
+            className="w-9 h-9 sm:w-11 sm:h-11 rounded-full border-2 border-slate-200 flex items-center justify-center text-slate-500 transition-colors hover:text-white"
             onMouseEnter={e => {
               e.currentTarget.style.borderColor = colors.primaryHex;
               e.currentTarget.style.color = colors.primaryHex;
@@ -210,7 +210,7 @@ export default function GoogleReviews() {
 
           <button
             onClick={() => go('next')}
-            className="w-11 h-11 rounded-full border-2 border-slate-200 flex items-center justify-center text-slate-500 transition-colors"
+            className="w-9 h-9 sm:w-11 sm:h-11 rounded-full border-2 border-slate-200 flex items-center justify-center text-slate-500 transition-colors"
             onMouseEnter={e => {
               e.currentTarget.style.borderColor = colors.primaryHex;
               e.currentTarget.style.color = colors.primaryHex;

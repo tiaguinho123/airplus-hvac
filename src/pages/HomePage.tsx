@@ -195,11 +195,11 @@ export default function HomePage() {
       </section>
 
       {/* ── Services Grid ── */}
-      <section className="py-16 bg-slate-50" id="services" aria-labelledby="services-heading">
+      <section className="py-10 sm:py-16 bg-slate-50" id="services" aria-labelledby="services-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
+          <div className="text-center mb-8">
             <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: colors.primaryHex }}>What We Do</p>
-            <h2 id="services-heading" className="text-3xl font-extrabold text-slate-900">Full-Service HVAC — Commercial &amp; Residential</h2>
+            <h2 id="services-heading" className="text-2xl sm:text-3xl font-extrabold text-slate-900">Full-Service HVAC — Commercial &amp; Residential</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {SERVICE_CARDS.map((s) => (
@@ -208,7 +208,7 @@ export default function HomePage() {
                   to={s.path}
                   className="block relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group"
                 >
-                  <img src={s.img} alt={s.title} className="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                  <img src={s.img} alt={s.title} className="w-full h-40 sm:h-52 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-5">
                     <h3 className="text-white font-bold text-lg mb-1">{s.title}</h3>
@@ -250,11 +250,11 @@ export default function HomePage() {
       </section>
 
       {/* ── Emergency CTA ── */}
-      <section className="py-12 text-white text-center" style={{ backgroundColor: colors.primaryHex }}>
+      <section className="py-10 sm:py-12 text-white text-center" style={{ backgroundColor: colors.primaryHex }}>
         <div className="max-w-4xl mx-auto px-4">
-          <Zap className="w-10 h-10 mx-auto mb-4 opacity-90" />
-          <h2 className="text-3xl font-extrabold mb-3">No Heat? No AC? We Come Today.</h2>
-          <p className="text-white/90 mb-8 text-lg max-w-2xl mx-auto">
+          <Zap className="w-8 h-8 sm:w-10 sm:h-10 mx-auto mb-3 opacity-90" />
+          <h2 className="text-2xl sm:text-3xl font-extrabold mb-3">No Heat? No AC? We Come Today.</h2>
+          <p className="text-white/90 mb-6 text-sm sm:text-lg max-w-2xl mx-auto">
             HVAC emergency in Fairfield or New Haven County? Call us immediately. We respond fast — any season, any system.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -269,12 +269,12 @@ export default function HomePage() {
       </section>
 
       {/* ── Trusted Brands ── */}
-      <section className="py-14 bg-white border-t border-slate-100">
+      <section className="py-8 sm:py-14 bg-white border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-sm font-bold tracking-widest uppercase text-slate-400 mb-8">Brands We Work With</p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+          <p className="text-center text-xs font-bold tracking-widest uppercase text-slate-400 mb-6">Brands We Work With</p>
+          <div className="flex flex-wrap justify-center items-center gap-5 md:gap-12">
             {BRAND_LOGOS.map((brand) => (
-              <img key={brand.name} src={brand.src} alt={brand.name} className="h-8 w-auto object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300" loading="lazy" />
+              <img key={brand.name} src={brand.src} alt={brand.name} className="h-6 sm:h-8 w-auto object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300" loading="lazy" />
             ))}
           </div>
         </div>
@@ -284,12 +284,12 @@ export default function HomePage() {
       <GoogleReviews />
 
       {/* ── About Strip ── */}
-      <section className="py-16 bg-white border-t border-slate-100">
+      <section className="py-10 sm:py-16 bg-white border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: colors.primaryHex }}>About Us</p>
-              <h2 className="text-3xl font-extrabold text-slate-900 mb-4">20+ Years Serving Connecticut</h2>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4">20+ Years Serving Connecticut</h2>
               <p className="text-slate-600 leading-relaxed mb-6">
                 AIRplus was founded by Jeton Krasniqi, who has been in the HVAC industry since 2006, working commercially and industrially with top Connecticut contractors. Today, AIRplus serves both residential and commercial clients across Fairfield &amp; New Haven County from our shop in Bridgeport, CT.
               </p>
@@ -320,7 +320,7 @@ export default function HomePage() {
               <img
                 src="https://images.squarespace-cdn.com/content/v1/61bd16787bbbd0225aa1eabb/1639794547275-KCGI3KZF109158LXR3JL/Boiler+Replacement.jpg"
                 alt="AIRplus HVAC technician at work in Connecticut"
-                className="rounded-3xl shadow-xl w-full object-cover h-96"
+                className="rounded-2xl shadow-xl w-full object-cover h-52 sm:h-72 lg:h-96"
                 loading="lazy"
               />
             </motion.div>
@@ -329,13 +329,13 @@ export default function HomePage() {
       </section>
 
       {/* ── FAQ ── */}
-      <section className="py-16 bg-slate-50 border-t border-slate-100">
+      <section className="py-10 sm:py-16 bg-slate-50 border-t border-slate-100">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
+          <div className="text-center mb-8">
             <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: colors.primaryHex }}>Common Questions</p>
-            <h2 className="text-3xl font-extrabold text-slate-900">Frequently Asked Questions</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Frequently Asked Questions</h2>
           </div>
-          <div className="bg-white rounded-3xl shadow-sm border border-slate-100 px-6 py-2">
+          <div className="bg-white rounded-2xl shadow-sm border border-slate-100 px-4 sm:px-6 py-2">
             {faqs?.map((faq: { question: string; answer: string }) => (
               <FAQItem key={faq.question} question={faq.question} answer={faq.answer} />
             ))}
@@ -373,7 +373,7 @@ export default function HomePage() {
       )}
 
       {/* ── Instagram CTA ── */}
-      <div className="py-10 border-t" style={{ backgroundColor: colors.dark }}>
+      <div className="py-8 border-t pb-24 lg:pb-8" style={{ backgroundColor: colors.dark }}>
         <div className="max-w-7xl mx-auto px-4 text-center">
           <p className="text-xl font-extrabold text-white mb-2">Follow Us on Instagram</p>
           <p className="text-white/70 mb-5 text-sm">See our latest projects and tips.</p>
