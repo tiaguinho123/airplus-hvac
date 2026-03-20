@@ -1,20 +1,15 @@
-import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Phone, Menu, X } from 'lucide-react';
 import { useSiteConfig } from '../config/SiteConfigContext';
 
-// Real Evolution Air logo from evolutionairllc.com
-const LOGO_URL = 'https://evolutionairllc.com/wp-content/uploads/2019/11/evolution-air-logo_horizontal-3-300x82.png';
+const LOGO_URL = 'https://images.squarespace-cdn.com/content/v1/61bd16787bbbd0225aa1eabb/27d8f851-1cc8-4c55-93e5-226a2cd6e755/AirPlus+Logo+big-01.png?format=1500w';
 
-// Exact navigation from evolutionairllc.com
 const navLinks = [
   { label: 'Home', path: '/' },
-  { label: 'Residential', path: '/residential' },
-  { label: 'Commercial', path: '/commercial' },
-  { label: 'Preventative Maintenance', path: '/preventative-maintenance' },
-  { label: 'About Us', path: '/about-us' },
-  { label: 'Contact Us', path: '/contact-us' },
+  { label: 'Services', path: '/services' },
+  { label: 'About', path: '/about' },
+  { label: 'Contact', path: '/contact' },
 ];
 
 export default function Navbar() {
@@ -45,12 +40,12 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
 
-          {/* Company Logo */}
+          {/* Logo */}
           <Link to="/" aria-label={`${cfg.businessName} — Home`} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex-shrink-0">
             <img
               src={cfg.logoUrl ?? LOGO_URL}
               alt={`${cfg.businessName} — Heating & Cooling`}
-              className="h-14 w-auto object-contain"
+              className="h-12 w-auto object-contain"
               fetchPriority="high"
             />
           </Link>

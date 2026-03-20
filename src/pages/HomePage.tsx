@@ -1,51 +1,43 @@
 import { motion } from 'motion/react';
-import { Phone, Calendar, Star } from 'lucide-react';
+import { Phone, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useSiteConfig } from '../config/SiteConfigContext';
-import GoogleReviews from '../components/GoogleReviews';
 import TrustBadges from '../components/TrustBadges';
+import GoogleReviews from '../components/GoogleReviews';
 
-// Real hero image from evolutionairllc.com
-const HERO_IMAGE = 'https://evolutionairllc.com/wp-content/uploads/2020/08/MicrosoftTeams-image-1.jpg';
+const HERO_IMAGE = 'https://images.squarespace-cdn.com/content/v1/61bd16787bbbd0225aa1eabb/950388d1-ebcd-43b0-ac15-c67621092de3/IMG_2314.jpg';
 
-// Real 6 services from evolutionairllc.com
-const SERVICES = [
+const HOME_SECTIONS = [
   {
-    title: 'Residential',
-    img: 'https://evolutionairllc.com/wp-content/uploads/2020/09/MicrosoftTeams-image-13.jpg',
-    path: '/residential',
-    desc: 'Evolution Air has been repairing and installing home air conditioning and heating units for over 10 years – more than enough time to know that when you want service, we need to be there – and we will!',
+    title: 'Services',
+    img: 'https://images.squarespace-cdn.com/content/v1/61bd16787bbbd0225aa1eabb/1730233390629-A2F33QSSCEYII880SUSP/IMG_0633.jpg',
+    path: '/home/service',
   },
   {
-    title: 'HVAC Contractor',
-    img: 'https://evolutionairllc.com/wp-content/uploads/2020/09/MicrosoftTeams-image-11.jpg',
-    path: '/about-us',
-    desc: 'We are a leading HVAC contractor in the area and have built our reputation for excellence, one job at a time. You can be sure that our technicians will customize the best heating and cooling solutions for your needs.',
+    title: 'Maintenance',
+    img: 'https://images.squarespace-cdn.com/content/v1/61bd16787bbbd0225aa1eabb/1730233311757-2XSB1RNV0A22U27MWHM5/IMG_3649.jpg',
+    path: '/home/maintenance',
   },
   {
-    title: 'Commercial',
-    img: 'https://evolutionairllc.com/wp-content/uploads/2020/09/condenser-repair.jpg',
-    path: '/commercial',
-    desc: 'Whether you are in need of an upfit, equipment change-out, service call, maintenance contract or diagnostic and design services to resolve chronic temperature, moisture or humidity issues, we have it covered.',
+    title: 'Installation',
+    img: 'https://images.squarespace-cdn.com/content/v1/61bd16787bbbd0225aa1eabb/1730233334470-97P5FOW7M35S1U1EXU2E/IMG_4326.jpg',
+    path: '/home/installation',
   },
   {
-    title: 'Custom Duct Work',
-    img: 'https://evolutionairllc.com/wp-content/uploads/2020/09/MicrosoftTeams-image-12.jpg',
-    path: '/commercial',
-    desc: 'As a full-service HVAC company, we take our work to the next level by designing, fabricating, and installing customized setups, including the ductwork. Evolution Air is your expert source for custom ducting.',
+    title: 'Mini-Splits',
+    img: 'https://images.squarespace-cdn.com/content/v1/61bd16787bbbd0225aa1eabb/1647455781270-46XYQ7G16OQB16M09T9T/IMG_8517.jpeg',
+    path: '/home/mini-splits',
   },
-  {
-    title: 'Repair Services',
-    img: 'https://evolutionairllc.com/wp-content/uploads/2020/08/MicrosoftTeams-image-3-e1598012087796.jpg',
-    path: '/residential',
-    desc: 'Do you need home furnace or air conditioning repair services? No problem. We offer same-day service in many cases. We extend our emergency commercial services to businesses as well.',
-  },
-  {
-    title: 'Preventative Maintenance',
-    img: 'https://evolutionairllc.com/wp-content/uploads/2020/08/MicrosoftTeams-image-1.jpg',
-    path: '/preventative-maintenance',
-    desc: "Our maintenance program isn't just for specific customers: it's for everyone. Regular maintenance can greatly reduce costly repairs, increase efficiency, and extend the life of your system.",
-  },
+];
+
+const BRAND_LOGOS = [
+  { name: 'American Standard', src: 'https://images.squarespace-cdn.com/content/v1/61bd16787bbbd0225aa1eabb/598240cb-9647-413a-8c21-8fbe7e698418/American_Standard_Logo_Transparent.png' },
+  { name: 'Trane HVAC', src: 'https://images.squarespace-cdn.com/content/v1/61bd16787bbbd0225aa1eabb/53041d00-ae10-4919-a8e7-f196c549ff17/Trane_Logo_transparent.png' },
+  { name: 'Bryant HVAC', src: 'https://images.squarespace-cdn.com/content/v1/61bd16787bbbd0225aa1eabb/7bf0b83e-ac90-48d3-9be8-941c965f1314/Bryant_Logo_Transparent.png' },
+  { name: 'Mitsubishi Electric', src: 'https://images.squarespace-cdn.com/content/v1/61bd16787bbbd0225aa1eabb/46538ed6-5359-437f-af91-83aa7d09db89/Mitsubishi_Logo_transparent.png' },
+  { name: 'Carrier HVAC', src: 'https://images.squarespace-cdn.com/content/v1/61bd16787bbbd0225aa1eabb/2c7c7dc8-33d5-4a17-8113-8688b23ecee7/Carrier_Logo_transparent.png' },
+  { name: 'Daikin', src: 'https://images.squarespace-cdn.com/content/v1/61bd16787bbbd0225aa1eabb/4d572a50-aa5c-4255-a181-ff5250db53ac/Daikin_Logo_Transparent.png' },
+  { name: 'Fujitsu', src: 'https://images.squarespace-cdn.com/content/v1/61bd16787bbbd0225aa1eabb/73c81d49-30f6-44ae-be5c-71b77891047b/Fujitsu_Logo_transparent.png' },
 ];
 
 export default function HomePage() {
@@ -53,29 +45,20 @@ export default function HomePage() {
 
   return (
     <div>
-      {/* ─── Hero ─────────────────────────────────────────── */}
-      {/* pt-20 = fixed navbar height (h-20 = 80px) */}
+      {/* ─── Hero ─── */}
       <section className="relative pt-20" aria-label="Hero">
-
-        {/* Container grows with content; image is absolute background */}
         <div className="relative">
-
-          {/* Background image — fills parent absolutely */}
           <img
             src={HERO_IMAGE}
-            alt={`${businessName} — Heating & Air Conditioning Stamford CT`}
+            alt={`${businessName} — Commercial & Residential HVAC in Fairfield County CT`}
             className="absolute inset-0 w-full h-full object-cover object-center"
             fetchPriority="high"
             decoding="async"
           />
-
-          {/* Dark gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/55 to-black/10" />
 
-          {/* Content layer — relative so it drives the container height */}
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8
-                          py-14 sm:py-20
-                          min-h-[420px] sm:min-h-[500px]
+                          py-14 sm:py-20 min-h-[420px] sm:min-h-[500px]
                           flex items-center">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
@@ -83,7 +66,7 @@ export default function HomePage() {
               transition={{ duration: 0.7 }}
               className="max-w-xl w-full"
             >
-              {/* Google Review badge */}
+              {/* Google Review Badge */}
               <a
                 href={reviews.googleMapsUrl}
                 target="_blank"
@@ -103,32 +86,26 @@ export default function HomePage() {
                 </span>
               </a>
 
-              {/* Headline */}
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight mb-5">
-                Fairfield County's Trusted Provider
-                <br />
-                <span style={{ color: colors.primaryHex }}>of Best-in-Class HVAC Solutions</span>
+                Connecticut's Premier Choice for<br />
+                <span style={{ color: colors.primaryHex }}>Commercial &amp; Residential</span><br />
+                HVAC Solutions
               </h1>
 
-              {/* Subtext */}
-              <p className="text-sm sm:text-base text-white/85 mb-8 leading-relaxed">
-                Full-service HVAC company based in Stamford, CT. Fully licensed &amp; insured.
-                Serving Fairfield &amp; Westchester County. Call today for a free estimate!
-              </p>
+              <p className="text-sm sm:text-base text-white/85 mb-3 font-semibold">Need Service now?</p>
 
-              {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-3">
-                <Link
-                  to="/preventative-maintenance"
+                <a
+                  href={`tel:${phone}`}
                   className="inline-flex items-center justify-center gap-2
                              px-6 py-3.5 text-white font-bold rounded-xl text-sm
                              shadow-lg transition-all duration-200
                              hover:-translate-y-1 hover:shadow-xl active:scale-95"
                   style={{ backgroundColor: colors.primaryHex }}
                 >
-                  <Calendar className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
-                  Request A Maintenance Agreement
-                </Link>
+                  <Phone className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
+                  Call Us
+                </a>
                 <a
                   href={`tel:${phone}`}
                   className="inline-flex items-center justify-center gap-2
@@ -148,77 +125,52 @@ export default function HomePage() {
       {/* ─── Trust Badges ─── */}
       <TrustBadges />
 
-      {/* ─── About ─── */}
+      {/* ─── About Strip ─── */}
       <section className="py-16 bg-white border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: colors.primaryHex }}>About Us</p>
-              <h2 className="text-3xl font-extrabold text-slate-900 mb-5">EVOLUTION AIR LLC</h2>
-              <p className="text-lg text-slate-600 mb-4 leading-relaxed">
-                Evolution Air LLC is a tight-knit group of HVAC professionals with over <strong>100 years of combined experience</strong>. We are a full-service HVAC company based out of Stamford, CT.
-              </p>
-              <p className="text-lg text-slate-600 mb-4 leading-relaxed">
-                Our company is fully licensed &amp; insured in CT, offering only the highest quality workmanship and competitive pricing. We proudly service Fairfield &amp; Westchester County.
-              </p>
-              <p className="text-slate-600 mb-6 leading-relaxed">
-                We have satisfied customers in Greenwich, Stamford, Darien, New Canaan, and more! No job is too small – call today for a free estimate for any replacement or new installation!
-              </p>
-              <Link
-                to="/about-us"
-                className="inline-flex items-center font-bold transition-all duration-200 hover:gap-2 gap-1"
-                style={{ color: colors.primaryHex }}
-              >
-                Learn More About Us <span className="transition-transform duration-200">→</span>
-              </Link>
-            </div>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-extrabold text-slate-900 mb-4">Dedicated HVAC Professionals.</h2>
+          <p className="text-lg text-slate-600 leading-relaxed mb-8 max-w-3xl mx-auto">
+            From emergency service, heating and cooling system replacements, to new construction, we'll handle all your residential and commercial HVAC needs. Trust <em>AIRplus Heating &amp; Cooling</em> to deliver quality work in a timely and professional manner. Please see below for examples of the services we provide.
+          </p>
+          <a
+            href="https://maps.app.goo.gl/dwpT2yatpveXgW7c8"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img
-              src="https://evolutionairllc.com/wp-content/uploads/2019/11/1.jpg"
-              alt="Evolution Air LLC team"
-              className="w-full rounded-2xl object-cover shadow-lg"
-              style={{ maxHeight: '400px' }}
+              src="https://images.squarespace-cdn.com/content/v1/61bd16787bbbd0225aa1eabb/d0dec2ee-c696-49b4-bcf4-f20772c06901/Google_Reviews.png"
+              alt="AIRplus Heating & Cooling Google Reviews"
+              className="h-20 mx-auto object-contain hover:opacity-80 transition-opacity"
               loading="lazy"
             />
-          </div>
+          </a>
         </div>
       </section>
 
-      {/* ─── Services Grid ─── */}
-      <section className="py-20 bg-slate-50" id="services" aria-labelledby="services-heading">
+      {/* ─── 4 Service Category Cards ─── */}
+      <section className="py-16 bg-slate-50" id="services" aria-labelledby="services-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 id="services-heading" className="text-3xl font-extrabold text-slate-900 mb-3">OUR SERVICES</h2>
-            <div className="w-16 h-1 mx-auto rounded-full" style={{ backgroundColor: colors.primaryHex }} aria-hidden="true" />
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {SERVICES.map((svc) => (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {HOME_SECTIONS.map((s) => (
               <motion.div
-                key={svc.title}
+                key={s.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-lg hover:-translate-y-1 transition-all group"
               >
-                <div className="relative h-48 overflow-hidden">
+                <Link
+                  to={s.path}
+                  className="block relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group"
+                >
                   <img
-                    src={svc.img}
-                    alt={svc.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    src={s.img}
+                    alt={s.title}
+                    className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <h3 className="absolute bottom-4 left-4 text-white font-bold text-lg">{svc.title}</h3>
-                </div>
-                <div className="p-5">
-                  <p className="text-slate-600 text-sm mb-4 leading-relaxed">{svc.desc}</p>
-                  <Link
-                    to={svc.path}
-                    className="inline-flex items-center gap-1 text-sm font-bold transition-all duration-200 hover:gap-2"
-                    style={{ color: colors.primaryHex }}
-                  >
-                    Learn More <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
-                  </Link>
-                </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                  <h2 className="absolute bottom-4 left-4 right-4 text-white font-bold text-xl">{s.title}</h2>
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -226,35 +178,56 @@ export default function HomePage() {
       </section>
 
       {/* ─── CTA Strip ─── */}
-      <section className="py-10 text-white text-center" style={{ backgroundColor: colors.primaryHex }}>
+      <section className="py-12 text-white text-center" style={{ backgroundColor: colors.primaryHex }}>
         <div className="max-w-4xl mx-auto px-4">
-          <p className="text-lg font-semibold mb-4">
-            Want to learn more about our Preventative Maintenance Program? Why not visit our contact page, we would love to chat with you!
+          <h2 className="text-2xl font-bold mb-2">Connecticut's HVAC Choice</h2>
+          <p className="text-white/90 mb-6 text-lg">
+            We're experienced working with residential and commercial clients. Please get in touch and one of our project managers will contact you about beginning the proposal process.
           </p>
-          <Link
-            to="/contact-us"
-            className="inline-block bg-white font-bold px-8 py-3 rounded-xl transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg active:scale-95"
+          <a
+            href={`tel:${phone}`}
+            className="inline-flex items-center gap-2 bg-white font-bold px-8 py-3 rounded-xl transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg active:scale-95"
             style={{ color: colors.primaryHex }}
           >
-            Contact Us
-          </Link>
+            <Phone className="w-4 h-4" />
+            Call Us — {phoneFormatted}
+          </a>
+        </div>
+      </section>
+
+      {/* ─── Brands ─── */}
+      <section className="py-14 bg-white border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-extrabold text-slate-900 text-center mb-10">Brands we work with</h2>
+          <div className="flex flex-wrap justify-center items-center gap-8">
+            {BRAND_LOGOS.map((brand) => (
+              <img
+                key={brand.name}
+                src={brand.src}
+                alt={brand.name}
+                className="h-10 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
+                loading="lazy"
+              />
+            ))}
+          </div>
         </div>
       </section>
 
       {/* ─── Reviews ─── */}
       <GoogleReviews />
 
-      {/* ─── Emergency CTA ─── */}
+      {/* ─── Instagram CTA ─── */}
       <div className="py-12" style={{ backgroundColor: colors.dark }}>
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="text-2xl font-extrabold text-white mb-2">24 Hour Emergency Service</p>
-          <p className="text-white/80 mb-6">No heat or cooling? We respond fast — any time of day or night.</p>
+          <p className="text-2xl font-extrabold text-white mb-2">Follow us on Instagram</p>
+          <p className="text-white/80 mb-6">Stay up to date with our latest projects and tips.</p>
           <a
-            href={`tel:${phone}`}
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-lg font-bold text-white border-2 border-white transition-all duration-200 hover:bg-white/15 hover:-translate-y-0.5 hover:shadow-lg active:scale-95"
+            href="https://www.instagram.com/airplusheatingcoolingllc/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-bold text-white border-2 border-white transition-all duration-200 hover:bg-white/15 hover:-translate-y-0.5 hover:shadow-lg active:scale-95"
           >
-            <Phone className="w-5 h-5" />
-            Emergency Call 24/7 — {phoneFormatted}
+            @airplusheatingcoolingllc
           </a>
         </div>
       </div>
