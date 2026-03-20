@@ -50,7 +50,7 @@ export default function ServicesPage() {
       </div>
 
       {/* ── Commercial ── */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-10">
             <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${colors.primaryHex}15` }}>
@@ -69,7 +69,7 @@ export default function ServicesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.04 }}
-                className="p-5 rounded-2xl border border-slate-100 bg-white hover:shadow-md hover:border-slate-200 transition-all"
+                className="p-5 rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-slate-300 hover:-translate-y-0.5 transition-all"
               >
                 <div className="w-9 h-9 rounded-lg flex items-center justify-center mb-3" style={{ backgroundColor: `${colors.primaryHex}12` }}>
                   <s.icon className="w-4 h-4" style={{ color: colors.primaryHex }} />
@@ -83,7 +83,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ── Residential ── */}
-      <section className="py-16 bg-slate-50 border-t border-slate-100">
+      <section className="py-16 bg-white border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-10">
             <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${colors.primaryHex}15` }}>
@@ -102,7 +102,7 @@ export default function ServicesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.04 }}
-                className="p-5 rounded-2xl border border-slate-100 bg-white hover:shadow-md hover:border-slate-200 transition-all"
+                className="p-5 rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-slate-300 hover:-translate-y-0.5 transition-all"
               >
                 <div className="w-9 h-9 rounded-lg flex items-center justify-center mb-3" style={{ backgroundColor: `${colors.primaryHex}12` }}>
                   <s.icon className="w-4 h-4" style={{ color: colors.primaryHex }} />

@@ -68,7 +68,7 @@ export default function Navbar() {
           {/* Phone CTA */}
           <a
             href={`tel:${cfg.phone}`}
-            className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg active:scale-95"
+            className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg active:scale-95"
             style={{ backgroundColor: cfg.colors.primaryHex }}
             aria-label={`Call ${cfg.phoneFormatted}`}
           >

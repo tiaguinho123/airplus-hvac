@@ -160,15 +160,14 @@ export default function HomePage() {
               </a>
 
               {/* Secondary ghost */}
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 flex-wrap">
                 <a
                   href={`tel:${phone}`}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 text-white/90 text-sm font-semibold rounded-xl border border-white/30 backdrop-blur-sm hover:bg-white/10 transition-all"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 text-white text-sm font-semibold rounded-xl border border-white/50 backdrop-blur-sm hover:bg-white/15 transition-all"
                 >
                   <Zap className="w-4 h-4" style={{ color: colors.primaryHex }} />
-                  Emergency Service
+                  Emergency Service — 24/7
                 </a>
-                <span className="text-white/40 text-xs">Available 24/7</span>
               </div>
 
             </motion.div>
@@ -237,7 +236,7 @@ export default function HomePage() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {PROCESS_STEPS.map((step, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="text-center">
+              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: '-50px' }} transition={{ delay: i * 0.1 }} className="text-center">
                 <div className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm" style={{ backgroundColor: `${colors.primaryHex}15` }}>
                   <step.icon className="w-7 h-7" style={{ color: colors.primaryHex }} />
                 </div>
