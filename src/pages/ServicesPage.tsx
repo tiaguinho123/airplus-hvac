@@ -1,6 +1,5 @@
 import { motion } from 'motion/react';
-import { Phone, CheckCircle, Wrench, Zap, ArrowRight, Building2, Home } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Phone, CheckCircle, Wrench, Zap, Building2, Home } from 'lucide-react';
 import { useSiteConfig } from '../config/SiteConfigContext';
 
 const BOILER_IMG = 'https://images.squarespace-cdn.com/content/v1/61bd16787bbbd0225aa1eabb/5ce6ba76-6205-43bb-a13f-af5e82e49ea0/boilers.jpg';
@@ -126,9 +125,13 @@ export default function ServicesPage() {
             <a href={`tel:${phone}`} className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl font-bold text-white text-base shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl" style={{ backgroundColor: colors.primaryHex }}>
               <Phone className="w-4 h-4" /> {phoneFormatted}
             </a>
-            <Link to="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl font-bold text-white border border-white/20 text-base hover:bg-white/10 transition">
-              Contact Us <ArrowRight className="w-4 h-4" />
-            </Link>
+            <a
+              href={`tel:${phone}`}
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl font-bold text-white border border-white/20 text-base hover:bg-white/10 transition"
+            >
+              <Zap className="w-4 h-4" />
+              Emergency Service — 24/7
+            </a>
           </div>
         </div>
       </section>

@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Phone, CheckCircle, Award, Users, Heart, ArrowRight, Instagram, Facebook } from 'lucide-react';
+import { Phone, CheckCircle, Award, Users, Heart, Zap, Instagram, Facebook } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useSiteConfig } from '../config/SiteConfigContext';
 
@@ -58,13 +58,14 @@ export default function AboutPage() {
                 >
                   <Phone className="w-4 h-4" /> {phoneFormatted}
                 </a>
-                <Link
-                  to="/contact"
+                <a
+                  href={`tel:${phone}`}
                   className="inline-flex items-center gap-2 px-6 py-3 font-bold rounded-2xl border-2 transition hover:-translate-y-0.5"
                   style={{ borderColor: colors.primaryHex, color: colors.primaryHex }}
                 >
-                  Contact Us <ArrowRight className="w-4 h-4" />
-                </Link>
+                  <Zap className="w-4 h-4" />
+                  Emergency Service
+                </a>
               </div>
             </motion.div>
 
