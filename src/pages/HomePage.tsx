@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Phone, Star, ArrowRight, Wrench } from 'lucide-react';
+import { Phone, Star, Zap, Wrench } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useSiteConfig } from '../config/SiteConfigContext';
 import TrustBadges from '../components/TrustBadges';
@@ -107,15 +107,14 @@ export default function HomePage() {
                   Call Us
                 </a>
                 <a
-                  href="#contact"
-                  onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}
+                  href={`tel:${phone}`}
                   className="inline-flex items-center justify-center gap-2
                              px-6 py-3.5 bg-white text-slate-900 font-bold rounded-xl text-sm
                              shadow-lg whitespace-nowrap transition-all duration-200
                              hover:-translate-y-1 hover:shadow-xl active:scale-95"
                 >
-                  <ArrowRight className="w-4 h-4 flex-shrink-0" style={{ color: colors.primaryHex }} aria-hidden="true" />
-                  Get Free Estimate
+                  <Zap className="w-4 h-4 flex-shrink-0" style={{ color: colors.primaryHex }} aria-hidden="true" />
+                  Emergency Service — 24/7
                 </a>
               </div>
             </motion.div>

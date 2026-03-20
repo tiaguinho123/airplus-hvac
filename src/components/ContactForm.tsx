@@ -19,8 +19,8 @@ export default function ContactForm() {
           <h2 className="font-semibold tracking-wide uppercase mb-3 text-sm" style={{ color: colors.primaryHex }}>
             Get In Touch
           </h2>
-          <h3 id="contact-heading" className="text-4xl font-bold text-white mb-6">Request Your Free Estimate</h3>
-          <p className="text-lg text-slate-400">No pressure, no obligation. We'll assess your situation and give you an honest recommendation.</p>
+          <h3 id="contact-heading" className="text-4xl font-bold text-white mb-6">Get in Touch</h3>
+          <p className="text-lg text-slate-400">Contact us using this form or give us a call and we'll be happy to discuss your needs.</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-start overflow-hidden">
@@ -117,7 +117,7 @@ export default function ContactForm() {
                   className="w-full py-4 px-8 font-bold text-lg rounded-xl transition-all hover:-translate-y-0.5 shadow-lg flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
                   style={{ backgroundColor: colors.primaryHex, color: '#FFFFFF' }}>
                   <Send className="w-5 h-5" aria-hidden="true" />
-                  Request Free Estimate
+                  Send Message
                 </button>
                 <p className="text-center text-xs text-slate-500">No spam. We'll only contact you about your request.</p>
               </form>
