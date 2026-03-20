@@ -254,7 +254,6 @@ export const config: SiteConfig = {
     'Installation',
     'Mini-Split Installation',
     'Commercial HVAC',
-    'Free Estimate',
     'Other / Not Sure',
   ],
 
