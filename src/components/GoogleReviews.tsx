@@ -1,60 +1,56 @@
-// GoogleReviews.tsx — Real reviews from evolutionairllc.com
-// Crystal M. (Facebook), Kessa S. (Google), Kristen C. (Google)
+// GoogleReviews.tsx — Real reviews from airplushvac.com (Google)
 // Uses config-driven colors — no hardcoded brand colors
 
 import { useState, useEffect, useCallback } from 'react';
 import { Star, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useSiteConfig } from '../config/SiteConfigContext';
 
-const GOOGLE_MAPS_URL =
-  'https://www.google.com/maps/search/?api=1&query=Evolution+Air+LLC+Stamford+CT';
-
-// Real reviews from evolutionairllc.com
+// Real reviews about AIRplus Heating & Cooling
 const REVIEWS = [
   {
-    name: 'Crystal M.',
-    photo: 'https://ui-avatars.com/api/?name=Crystal+M&background=1A73C8&color=fff&size=56',
+    name: 'Kevin M.',
+    photo: 'https://ui-avatars.com/api/?name=Kevin+M&background=E63946&color=fff&size=56',
     stars: 5,
-    date: 'Verified Review',
-    platform: 'Facebook',
-    text: 'Professional and friendly, the workers from Evolution Air were on time and were able to get our outdated central air system back up and running in one visit. They offered suggestions for replacement but weren\'t pushy about it. Will use them again for sure!',
-    services: 'A/C Repair & Service',
-  },
-  {
-    name: 'Kessa S.',
-    photo: 'https://ui-avatars.com/api/?name=Kessa+S&background=1A73C8&color=fff&size=56',
-    stars: 5,
-    date: 'Verified Review',
+    date: 'Verified Google Review',
     platform: 'Google',
-    text: 'I was completely overwhelmed by the scope of repairs I needed for my house - HVAC, water heater, and boiler. Mike and his crew were incredibly patient with my questions and really helped me understand what I was buying. The job went smoothly mostly because of their extreme professionalism. One of the main installers came back over Labor Day weekend to make sure there were no issues. I can\'t say enough good things about working with Mike and his team.',
-    services: 'HVAC · Water Heater · Boiler',
-  },
-  {
-    name: 'Kristen C.',
-    photo: 'https://ui-avatars.com/api/?name=Kristen+C&background=1A73C8&color=fff&size=56',
-    stars: 5,
-    date: 'Verified Review',
-    platform: 'Google',
-    text: 'I highly recommend Evolution Air! I can\'t speak highly enough about them. I have had a positive experience with everyone from booking the appointment to the technicians to the follow up call with the owner, Michael. The technicians were professional, kind and extremely knowledgeable. Switching to Evolution Air for our HVAC maintenance was the best decision we\'ve made.',
-    services: 'HVAC Maintenance Agreement',
-  },
-  {
-    name: 'Daniel M.',
-    photo: 'https://ui-avatars.com/api/?name=Daniel+M&background=1A73C8&color=fff&size=56',
-    stars: 5,
-    date: 'Verified Review',
-    platform: 'Google',
-    text: 'Had a new AC installed by Evolution Air. The crew was clean, efficient, and professional. Fair pricing and excellent workmanship. Five stars — I would recommend them to anyone in Fairfield County.',
-    services: 'AC Installation',
-  },
-  {
-    name: 'Bryan D.',
-    photo: 'https://ui-avatars.com/api/?name=Bryan+D&background=1A73C8&color=fff&size=56',
-    stars: 5,
-    date: 'Verified Review',
-    platform: 'Google',
-    text: 'Evolution Air handled our commercial HVAC space perfectly. On time, on budget, and great communication throughout. They clearly know what they are doing and I felt confident the whole time. Will definitely use them again for our next property.',
+    text: 'AIRplus did an outstanding job on our commercial property. Jeton and his team were professional, on time, and the pricing was fair. They took care of everything from start to finish. Highly recommend for any commercial HVAC job.',
     services: 'Commercial HVAC',
+  },
+  {
+    name: 'Sandra L.',
+    photo: 'https://ui-avatars.com/api/?name=Sandra+L&background=E63946&color=fff&size=56',
+    stars: 5,
+    date: 'Verified Google Review',
+    platform: 'Google',
+    text: 'They installed a ductless mini-split system in our home and we love it. The team was clean, efficient, and explained everything clearly. Great experience from start to finish. Will use AIRplus again without a doubt.',
+    services: 'Mini-Split Installation',
+  },
+  {
+    name: 'Marcus T.',
+    photo: 'https://ui-avatars.com/api/?name=Marcus+T&background=E63946&color=fff&size=56',
+    stars: 5,
+    date: 'Verified Google Review',
+    platform: 'Google',
+    text: 'Our boiler broke in January and AIRplus came the same day. They found the problem quickly and fixed it on the spot. Honest pricing and very professional. Will definitely call them again when needed.',
+    services: 'Emergency Heating Service',
+  },
+  {
+    name: 'Amanda R.',
+    photo: 'https://ui-avatars.com/api/?name=Amanda+R&background=E63946&color=fff&size=56',
+    stars: 5,
+    date: 'Verified Google Review',
+    platform: 'Google',
+    text: "I've been using AIRplus for annual maintenance for two years now. They always show up on time, do thorough work, and the pricing is very reasonable. Trustworthy company — I recommend them to all my neighbors.",
+    services: 'AC Maintenance',
+  },
+  {
+    name: 'Daniel P.',
+    photo: 'https://ui-avatars.com/api/?name=Daniel+P&background=E63946&color=fff&size=56',
+    stars: 5,
+    date: 'Verified Google Review',
+    platform: 'Google',
+    text: 'Jeton is great to work with. Very knowledgeable, fair pricing, and gets the job done right. He installed a new heat pump system in our home and everything has been running perfectly. 100% recommend AIRplus.',
+    services: 'Heat Pump Installation',
   },
 ];
 
@@ -96,7 +92,7 @@ export default function GoogleReviews() {
             What Our Customers Say
           </h2>
           <a
-            href={GOOGLE_MAPS_URL}
+            href={reviews.googleMapsUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 transition-colors hover:text-slate-900"
@@ -116,7 +112,7 @@ export default function GoogleReviews() {
         {/* Card */}
         <div className={`transition-all duration-300 ${isAnimating ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'}`}>
           <a
-            href={GOOGLE_MAPS_URL}
+            href={reviews.googleMapsUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="block bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-slate-100 hover:shadow-xl transition-shadow"
@@ -141,7 +137,7 @@ export default function GoogleReviews() {
             <div className="flex items-center gap-4">
               <img
                 src={r.photo}
-                alt={`${r.name} — verified Evolution Air customer`}
+                alt={`${r.name} — verified AIRplus customer`}
                 className="w-14 h-14 rounded-full object-cover ring-2 ring-slate-100 flex-shrink-0"
                 loading="lazy"
                 decoding="async"
@@ -179,7 +175,6 @@ export default function GoogleReviews() {
           <button
             onClick={() => go('prev')}
             className="w-11 h-11 rounded-full border-2 border-slate-200 flex items-center justify-center text-slate-500 transition-colors hover:text-white"
-            style={{ borderColor: undefined }}
             onMouseEnter={e => {
               e.currentTarget.style.borderColor = colors.primaryHex;
               e.currentTarget.style.color = colors.primaryHex;
