@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Phone, Star } from 'lucide-react';
+import { Phone, Star, ArrowRight, Wrench } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useSiteConfig } from '../config/SiteConfigContext';
 import TrustBadges from '../components/TrustBadges';
@@ -107,14 +107,15 @@ export default function HomePage() {
                   Call Us
                 </a>
                 <a
-                  href={`tel:${phone}`}
+                  href="#contact"
+                  onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}
                   className="inline-flex items-center justify-center gap-2
                              px-6 py-3.5 bg-white text-slate-900 font-bold rounded-xl text-sm
                              shadow-lg whitespace-nowrap transition-all duration-200
                              hover:-translate-y-1 hover:shadow-xl active:scale-95"
                 >
-                  <Phone className="w-4 h-4 flex-shrink-0" style={{ color: colors.primaryHex }} aria-hidden="true" />
-                  {phoneFormatted}
+                  <ArrowRight className="w-4 h-4 flex-shrink-0" style={{ color: colors.primaryHex }} aria-hidden="true" />
+                  Get Free Estimate
                 </a>
               </div>
             </motion.div>
@@ -184,14 +185,23 @@ export default function HomePage() {
           <p className="text-white/90 mb-6 text-lg">
             We're experienced working with residential and commercial clients. Please get in touch and one of our project managers will contact you about beginning the proposal process.
           </p>
-          <a
-            href={`tel:${phone}`}
-            className="inline-flex items-center gap-2 bg-white font-bold px-8 py-3 rounded-xl transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg active:scale-95"
-            style={{ color: colors.primaryHex }}
-          >
-            <Phone className="w-4 h-4" />
-            Call Us — {phoneFormatted}
-          </a>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link
+              to="/services"
+              className="inline-flex items-center justify-center gap-2 bg-white font-bold px-8 py-3 rounded-xl transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg active:scale-95"
+              style={{ color: colors.primaryHex }}
+            >
+              <Wrench className="w-4 h-4" />
+              View Our Services
+            </Link>
+            <a
+              href={`tel:${phone}`}
+              className="inline-flex items-center justify-center gap-2 border-2 border-white text-white font-bold px-8 py-3 rounded-xl transition-all duration-200 hover:bg-white/10 hover:-translate-y-0.5 active:scale-95"
+            >
+              <Phone className="w-4 h-4" />
+              {phoneFormatted}
+            </a>
+          </div>
         </div>
       </section>
 

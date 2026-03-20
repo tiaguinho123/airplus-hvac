@@ -23,11 +23,11 @@ export default function ContactForm() {
           <p className="text-lg text-slate-400">No pressure, no obligation. We'll assess your situation and give you an honest recommendation.</p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="grid lg:grid-cols-2 gap-16 items-start overflow-hidden">
           {/* Info */}
-          <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="space-y-8">
+          <div className="space-y-8">
             {[
-              { icon: Phone, label: 'Call or Text', value: phoneFormatted, href: `tel:${phone}`, sub: 'Mon–Fri 8am–4:30pm · 24/7 Emergencies' },
+              { icon: Phone, label: 'Call or Text', value: phoneFormatted, href: `tel:${phone}`, sub: 'Mon–Fri 8am–5pm · Emergency Service Available' },
               { icon: Mail, label: 'Email Us', value: email, href: `mailto:${email}`, sub: null },
               { icon: MapPin, label: 'Address', value: `${address.street}, ${address.city}, ${address.state} ${address.zip}`, href: null, sub: null },
             ].map((item, i) => (
@@ -56,10 +56,10 @@ export default function ContactForm() {
                 Heating or cooling emergency? Call us immediately at <a href={`tel:${phone}`} className="font-bold" style={{ color: colors.primaryHex }}>{phoneFormatted}</a>.
               </p>
             </div>
-          </motion.div>
+          </div>
 
           {/* Form */}
-          <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+          <div>
             {submitted ? (
               <div className="bg-white/5 border border-amber-400/30 rounded-3xl p-12 text-center">
                 <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6" style={{ backgroundColor: colors.primaryHex }}>
@@ -69,8 +69,9 @@ export default function ContactForm() {
                 <p className="text-slate-400">We'll get back to you within 1 business hour. For urgent needs, call {phoneFormatted}.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="bg-white/5 border border-white/10 rounded-3xl p-8 space-y-5" noValidate aria-label={`Free estimate request form — ${businessName}`}>
-                <div className="grid sm:grid-cols-2 gap-5">
+              <form onSubmit={handleSubmit} className="bg-white/5 border border-white/10 rounded-3xl p-6 sm:p-8 space-y-5 w-full min-w-0" noValidate aria-label={`Free estimate request form — ${businessName}`}>
+                {/* First Name + Last Name — stacked on all screens */}
+                <div className="grid gap-5">
                   {[{ id: 'first-name', label: 'First Name', type: 'text', autocomplete: 'given-name', placeholder: 'John' },
                     { id: 'last-name', label: 'Last Name', type: 'text', autocomplete: 'family-name', placeholder: 'Smith' }].map(f => (
                     <div key={f.id}>
@@ -121,7 +122,7 @@ export default function ContactForm() {
                 <p className="text-center text-xs text-slate-500">No spam. We'll only contact you about your request.</p>
               </form>
             )}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
